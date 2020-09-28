@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+
+\usepackage{titling}
+\usepackage[document]{ragged2e}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{ulem}
+\usepackage[outline]{contour}
+
+\setlength{\droptitle}{-3em} % em = width of M
+
+\title{\centering{\large{\textbf{AP Calculus}: Weekly Problem Set \#1}}}
+\author{Evan Huang}
+\date{09/28/20}
+
+
+%Creates a new variable called "rArrow": A right arrow with horizontal spaces and outlined BLACK.
+\newcommand{\rArrow}{\quad\contour{black}{$\Rightarrow$}\quad}
+
+\begin{document}    
+    \maketitle
+
+    \textbf{\uline{Question \#5}}:   Rewrite the following equation of a circle in standard form and state the center and \\radius: ${\mathbf{x^2 + y^2 - 2x + 6y + 3 = 0}}$ \\~\\
+    
+    % "quad" is a horizontal spacing, "qquad" = double of quad: spacing is determined from the document's font size.
+    
+    \small{ % Scope in the area where you want the text to be small.
+        \begin{enumerate}\bfseries\setlength\itemsep{2em}
+            \item Notice that the question refers to a circle.\\
+                \uline {Formula of a circle}: ${(x-h)^2 + (y-k)^2 = r^2}$
+            
+            \item Re-arrange the equation so we can easily convert the given equation to that of a circle.\\
+                ${x^2 + y^2 - 2x + 6y + 3 = 0}$ \rArrow ${(x^2 -2x) + (y^2 +6y) = -3}$
+            
+            \item We can now "complete the square" for both of the quadratics in the parentheses.\\
+                ${(x^2 -2x) + (y^2 +6y) = -3}$\\~\\
+                Completing the square...\\
+                $(x^2 - 2x) \rArrow (-2/2) = -1 \rArrow (-1)^2 = 1$ 
+                $\space\|\space$
+                $(y^2 + 6x) \rArrow (6/2) = 3 \rArrow (3)^2 = 9$
+                
+            \item You now have the equation: ${(x^2 - 2x + 1) + (y^2 + 6y + 9) = 7}$\\[0.5cm]
+                - Factor the two quadratics...
+                
+                \quad ${x^2 - 2x + 1 \rArrow (x - 1)^2}$\\
+                \quad ${y^2 + 6x + 9 \rArrow (y + 3)^2}$
+            
+            \item Circle form: $\mathbf{(x-1)^2 + (y + 3)^2 = 7}$
+        \end{enumerate}
+    }
+    
+    \normalsize {* Now that we re-wrote the equation ${\mathbf{x^2 + y^2 - 2x + 6y + 3 = 0}}$ to standard form, $\mathbf{{(x-1)^2 + (y + 3)^2 = 7}}$, we can identify both the center and the radius of the circle.}\\~\\
+    
+    %Centers and bold.
+    \centerline{\textbf{Center: ${(1, -3)}$ \qquad Radius: ${\sqrt{7}}$}}
+    
+\end{document}

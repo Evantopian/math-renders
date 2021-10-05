@@ -1,0 +1,139 @@
+''''
+#Imports
+import numpy as np
+import matplotlib.pyplot as plt
+
+months = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]
+
+area = np.pi*3
+
+#//////////////////////////////////////////////////////////////////////////
+#Amazon Stocks
+AmaStock = open("CSV/AmazonStock.txt").readlines()
+AmaStock[:] = [line.rstrip('\n') for line in AmaStock]
+AmaStock = list(map(float, AmaStock))
+
+colors = ('green')
+
+plt.scatter(months, AmaStock, s=area, c=colors, alpha= 0.5)
+plt.title('Amazon Stocks by Months')
+plt.xlabel('Months (May 2015 - May 2019)')
+plt.ylabel('Amazon Opening Stock Price')
+plt.show()
+plt.savefig('Graphs/AmaScatter.png')
+plt.clf()
+
+#//////////////////////////////////////////////////////////////////////////
+#Microsoft Stocks
+MicroStock = open("CSV/MicrosoftStock.txt").readlines()
+MicroStock[:] = [line.rstrip('\n') for line in MicroStock]
+MicroStock = list(map(float, MicroStock))
+
+colors = ('red')
+
+plt.scatter(months, MicroStock, s=area, c=colors, alpha= 0.5)
+plt.title('Microsoft Stocks by Months')
+plt.xlabel('Months (May 2015 - May 2019)')
+plt.ylabel('Microsoft Opening Stock Price')
+plt.show()
+plt.savefig('Graphs/MicroScatter.png')
+plt.clf()
+
+#//////////////////////////////////////////////////////////////////////////
+#Apple Stocks
+AppleStock = open("CSV/AppleStock.txt").readlines()
+AppleStock[:] = [line.rstrip('\n') for line in AppleStock]
+AppleStock = list(map(float, AppleStock))
+
+colors = ('blue')
+
+plt.scatter(months, AppleStock, s=area, c=colors, alpha= 0.5)
+plt.title('Apple Stocks by Months')
+plt.xlabel('Months (May 2015 - May 2019)')
+plt.ylabel('Apple Opening Stock Price')
+plt.show()
+plt.savefig('Graphs/AppleScatter.png')
+plt.clf()
+
+#//////////////////////////////////////////////////////////////////////////
+#Alphabet Stocks
+AlphaStock = open("CSV/AlphabetStock.txt").readlines()
+AlphaStock[:] = [line.rstrip('\n') for line in AlphaStock]
+AlphaStock = list(map(float, AlphaStock))
+
+colors = ('purple')
+
+plt.scatter(months, AppleStock, s=area, c=colors, alpha= 0.5)
+plt.title('Alphabet Stocks by Months')
+plt.xlabel('Months (May 2015 - May 2019)')
+plt.ylabel('Alphabet Opening Stock Price')
+plt.show()
+plt.savefig('Graphs/AlphaScatter.png')
+plt.clf()
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#-------------------------------------------------------------------------
+#Barnes and Nobles Closing
+#-------------------------------------------------------------------------
+BNClo = open("DataSetsPro/B&N/B&NCSV/B&NClosing.txt").readlines()
+BNClo[:] = [line.rstrip('\n') for line in BNClo]
+BNClo = list(map(float, BNClo))
+
+colors = ('black')
+
+plt.scatter(months, BNClo, s=area, c=colors, alpha= 0.5)
+plt.title('Barnes & Nobles Closing Value by Months')
+plt.xlabel('Months (May 2015 - May 2019)')
+plt.ylabel('Barnes & Nobles Closing Price')
+plt.show()
+plt.savefig('DataSetsPro/B&N/B&NGraphs/B&NClosingG.png')
+plt.clf() 
+
+ComputerOutput(BNClo,months)
+
+
+
+
+
+
+
+
+
+
+
+
+#//////////////////////////////////////////////////////////////////////////
+#Amazon Closing 
+#//////////////////////////////////////////////////////////////////////////
+AmaClo = open("DataSetsPro/Amazon/AmazonCSV/AmazonClosing.txt").readlines()
+AmaClo[:] = [line.rstrip('\n') for line in AmaClo]
+AmaClo = list(map(float, AmaClo))
+
+colors = ('blue')
+
+plt.scatter(months, AmaClo, s=area, c=colors, alpha= 0.5)
+plt.title('Amazon Closing Values by Months')
+plt.xlabel('Months (May 2015 - May 2019)')
+plt.ylabel('Amazon Closing Price')
+plt.show()
+plt.savefig('DataSetsPro/Amazon/AmazonGraphs/AmazonClosingG.png')
+plt.clf()
+
+ComputerOutput(AmaClo,months)

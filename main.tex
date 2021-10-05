@@ -1,0 +1,436 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} 
+\usepackage{amsmath} 
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx} 
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2cm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\newcommand{\minus}{\scalebox{0.75}[1.0]{$-$}}
+\usepackage{wrapfig}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+
+
+% ////////////////////////////////////////////
+%                Title page
+% ///////////////////////////////////////////
+\title{\textbf {\Huge Calculus Notebook}}
+\author{\textbf {Developed by:} Evan Huang}
+\date{Fall 2020\textbf{—}Spring 2021}
+
+\begin{document}
+
+\maketitle
+\begin{figure}[!h]
+\centering
+\includegraphics[scale= 0.5]{cImg.jpg}
+\end{figure}
+
+% ////////////////////////////////////////////
+%             Table of Contents
+% ///////////////////////////////////////////
+\newpage
+\section*{\LARGE \centerline{Table of Contents}}
+
+\raggedright
+\textbf{\\[0.5cm]\uline{Unit 1: Limits and Continuity}}
+\begin{itemize}
+    \item Defining Limits and Using Limit Notation
+    \item Determining Limits Using the Squeeze Theorem
+    \item Exploring Types of Discontinuities
+    \item Defining Continuity at a Point
+    \item Working with the Intermediate Value Theorem\\[1cm]
+\end{itemize}
+
+
+\textbf{\uline{Unit 2: Differentiation - Definition and Fundamental Properties}}
+\begin{itemize}
+    \item Defining Average and Instantaneous Rate of Change at a Point
+    \item Defining the Derivative of a Function and Using Derivative Notation
+    \item Applying the Power Rule
+    \item The Product Rule
+    \item The Quotient Rule\\[1cm]
+\end{itemize}
+
+\textbf{\uline{Unit 3: Differentiation: Composite, Implicit, and Inverse Functions}}
+\begin{itemize}
+    \item The Chain Rule
+    \item Implicit Differentiation
+    \item Differentiating Inverse Functions
+    \item Differentiating Inverse Trigonometric Functions
+    \item Calculations Higher-Order Derivatives\\[1cm]
+\end{itemize}
+
+\textbf{\uline{Unit 4: Contextual Applications of Differentiation}}
+\begin{itemize}
+    \item Interpreting the Meaning of Derivative in Context
+    \item Straight-Line Motion - Connecting Position, Velocity, and Acceleration
+    \item Related Rates
+    \item Approximating Values of a Function Using Local Linearity and Linearization
+    \item Using L’Hopital's Rule for Finding Limits of Indeterminate Forms\\[1cm]
+\end{itemize}
+% ////////////////////////////////////////////
+%                   Unit 1
+% ///////////////////////////////////////////
+\newpage
+\newgeometry{left=1cm,right=1cm,top=2.5cm,bottom=2cm}
+
+\section*{\LARGE \centerline{Unit 1: Limits and Continuity}}
+
+\textbf{\centerline{\uline{Helpful Resources:}}}\\[1cm]
+\begin{figure}[!h]
+    \centering
+    \subfloat{{\includegraphics[scale=0.75]{Unit1IMG/DefLim.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit1IMG/SqThe.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.75]{Unit1IMG/PropLim.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit1IMG/ContDef.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=1]{Unit1IMG/IVT.PNG}}}
+\end{figure}
+\restoregeometry
+
+\newpage
+\textbf{\centerline{\Large{Practice Problems:}}}\\[1cm]
+\textbf{\uline{Question #1:}}
+ A 5000-gallon tank is filled to capacity with water. At time $t=0$, water begins to leak out of the tank at a rate modeled by $R(t)$, measure in gallons per hour, where
+ 
+\[
+  R(t) =
+  \begin{cases}
+        \frac{300t}{t+1}, & 0 \leq t \leq 4 \\
+        500e^{0.5t}, & t > 4 \\
+  \end{cases}
+\]
+
+Is $R$ continuous at $t=4$ ? Show the work that leads to your answer.\\[0.5cm]
+$\bullet$ Here, we can see that R is not continuous at $t=4$ since LHS $\neq$ RHS. Therefore, there is no limit defined at the value 4, hence R is not continuous at $t=4$. \\[1.5cm]
+
+
+\textbf{\uline{Question #2:}}
+\[\lim_{x \to 0} \frac{sin(7x)}{sin(4x)}\]
+
+\textbf{Show your work:}\\[0.5cm]
+\quad
+\scalebox{1.2}{$\lim_{x \to 0} \frac{sin(7x)}{sin(4x)} 
+\rightarrow \lim_{x \to 0} \frac{cos(7x) \cdot 7}{cos(4x) \cdot 4}
+\rightarrow \frac{cos(7(0)) \cdot 7}{cos(4(0)) \cdot 4}
+\rightarrow \frac{(1)(7)}{(1)(4)} = \frac{7}{4}$}\\[0.5cm]
+
+$\bullet$ Knowing L'Hopital's Rule is essential in solving this problem. By applying the rule, we can change the limit and then plug in 0 as $x$ to get rid of the cosines leaving us with $\frac{7}{4}$.\\[1.5cm]
+
+
+\textbf{\uline{Question #3:}}
+\[\lim_{x \to \infty} \frac{\sqrt{7x^6+3x^8}}{6-5x^2+2x^4} =\]
+
+\textbf{Show your work:}\\[0.5cm]
+\quad
+\scalebox{1.2}{$\lim_{x \to \infty} = \frac{\sqrt{7x^6+3x^8}}{6-5x^2+2x^4}
+\rightarrow \lim_{x \to \infty} = \frac{\frac{7x^6+3x^8}{2x^4}}{\frac{6-5x^2+2x^4}{2x^4}}
+\rightarrow \lim_{x \to \infty} = \frac{\frac{\sqrt{7x^6}}{\sqrt{2x^8}} + \frac{\sqrt{3x^8}}{\sqrt{2x^8}}}{\frac{6}{2x^4} - \frac{5x^2}{2x^4} + 1}
+$}\\[0.25cm]
+
+\quad
+\scalebox{1.2}{$ \lim_{x \to \infty} = \frac{0+ \sqrt{\frac{3}{4}}}{0 - 0 + 1}
+= \frac{\sqrt{3}}{2}$}\\[0.5cm]
+
+
+$\bullet$ \textbf{Solution:} $\frac{\sqrt{3}}{2}$
+
+% ////////////////////////////////////////////
+%                   Unit 2
+% ///////////////////////////////////////////
+\newpage
+\newgeometry{left=1cm,right=1cm,top=2.5cm,bottom=2cm}
+
+\section*{\LARGE \centerline{Unit 2: Differentiation - Definition and Fundamental Properties}}
+
+\textbf{\centerline{\uline{Helpful Resources:}}}\\[1cm]
+\begin{figure}[!h]
+    \centering
+    \subfloat{{\includegraphics[scale=0.75]{Unit2IMG/DefTan.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit2IMG/DefDervF.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.75]{Unit2IMG/PowR.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit2IMG/ProdR.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.75]{Unit2IMG/ConstR.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.75]{Unit2IMG/CMR.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.8]{Unit2IMG/QuoR.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit2IMG/SDR.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.8]{Unit2IMG/ChainR.PNG}}}
+\end{figure}
+\restoregeometry
+
+\newpage
+\textbf{\centerline{\Large{Practice Problems:}}}\\[1cm]
+\textbf{\uline{Question #1:}}
+What is
+ 
+\[\lim_{h \to 0} \frac{tan(\frac{\pi}{4} +h) - tan(\frac{\pi}{4})}{h}\]
+
+\textbf{Show your work:}\\[0.5cm]
+
+\quad \uline{Trig Rules}: $f(x) = tan(x) \rightarrow f'(x) = sec^2(x)$\\[0.25cm]
+\quadApply the rule $\rightarrow f'(\frac{\pi}{4}) = sec^2(\frac{\pi}{4}) = (\sqrt{2})^2 = 2$\\[0.5cm]
+
+$\bullet$ \textbf{Solution:} 2\\[1.5cm]
+
+
+
+\textbf{\uline{Question #2:}}
+If the line $7x - 4y = 3$ is tangent in the first quadrant to the curve $y = x^3 + x + c$, then $c$ is
+
+\begin{enumerate}
+    \begin{enumerate}
+        \item $\minus\frac{1}{2}$
+        \item $\frac{1}{2}$
+        \item $\frac{1}{4}$
+        \item $\minus\frac{1}{4}$
+    \end{enumerate}
+\end{enumerate}\\[0.5cm]
+
+\quad Change the equation of the line. $\rightarrow y = \frac{7}{4}x - \frac{3}{4}$\\[0.25cm]
+\quad Since $\frac{dy}{dx}$ is the slope, $\frac{dy}{dx} = 3x^2 + 1 \rightarrow \frac{7}{4} = 3x^2 + 1 \rightarrow 12x^2 - 3$\\[0.25cm]
+\quad Factor $12x^2 - 3 \rightarrow 3(4x^2-1) = 0 \rightarrow 3(2x+1)(2x-1) = 0$\\[0.25cm]
+\quad $x = {\frac{1}{2}, \minus\frac{1}{2}}$\\[0.5cm]
+
+ $\bullet$ We cannot forget that the question prompts for the first quadrant. Since the x-values in the first quadrant is positive, the answer must be \textbf{Choice (b)}.\\[1.5cm]
+
+
+\textbf{\uline{Question #3:}}
+A point moves in a straight line so that its distance at time $t$ from a fixed point of the line is $2t^3 -9t^2 +12t$. The $total$ distance that the point travels from $t = 0$ to $t = 4$ is
+
+\begin{enumerate}
+    \begin{enumerate}
+        \item 32
+        \item 33
+        \item 34
+        \item 35
+    \end{enumerate}
+\end{enumerate}\\[0.5cm]
+
+$\bullet$ From this question we can see that when $t = 0$ the point is also at 0. Now, when we move to $t = 1$, the point is at 5. At $t = 2$, the point is now at 4, decreased by 1. From 0 $\rightarrow$ to 2, the total time has been 6. We do not need to include $t = 3$ since it increases until $(4, 32)$. Finally, when $t = 4$, the point is at 32, increased by 28. With all the necessary values, the answer is $(5) + (1) + (28)$ or \textbf{34, Choice (c)}.
+
+% ////////////////////////////////////////////
+%                   Unit 3
+% ///////////////////////////////////////////
+\newpage
+\newgeometry{left=1cm,right=1cm,top=2.5cm,bottom=2cm}
+
+\section*{\LARGE \centerline{Unit 3: Differentiation: Composite, Implicit, and Inverse Functions}}
+
+\textbf{\centerline{\uline{Helpful Resources:}}}\\[1cm]
+\begin{figure}[!h]
+    \centering
+    \subfloat{{\includegraphics[scale=0.75]{Unit3IMG/DervInv.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.75]{Unit3IMG/RefInv.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.75]{Unit3IMG/ConDivInv.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit3IMG/LogProp.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.75]{Unit3IMG/DefInv.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit3IMG/DevE.PNG}}}
+\end{figure}
+\restoregeometry
+
+\newpage
+\textbf{\centerline{\Large{Practice Problems:}}}\\[1cm]
+\textbf{\uline{Question #1:}}
+Consider the curve given by $y^2 = 2 + xy$.
+ 
+\begin{enumerate}
+    \begin{enumerate}
+        \item Show that $\frac{dy}{dx} = \frac{y}{2y-x}$.
+        \item Find all points $(x, y)$ on the curve where the line to the curve has slope $\frac{1}{2}$.
+        \item Show that there are no points $(x, y)$ on the curve where the line tangent to curve is horizontal.
+        \item Let $x$ and $y$ be functions of time $t$ that are related by the equation $y^2 = 2 + xy$. At time $t = 5$, the value of y is 3 and $\frac{dy}{dx}$ at time $t = 5$.
+    \end{enumerate}
+\end{enumerate}\\[0.5cm]
+
+\textbf{a)} $(2y)\frac{dy}{dx} = y + (x)\frac{dy}{dx} 
+\rightarrow (2y)\frac{dy}{dx} - (x)\frac{dy}{dx} = y
+\rightarrow \frac{dy}{dx} = \frac{y}{2y-x}$\\[0.25cm]
+
+\textbf{b)} $\frac{1}{2} = \frac{y}{2y-x}
+\rightarrow 2y = 2y - x \rightarrow 2y - 2y = -x \rightarrow x = 0$\\
+\quad $\bullet$ Plug 0 as $x$ in the original equation, $y = \pm{2}$. This means that the points are either $\mathbf{(0, \sqrt{2})}$ or $\mathbf{(0, \minus\sqrt{2})}$\\[0.25cm]
+
+\textbf{c)} $0 = \frac{y}{2y - x} \rightarrow (0)^2 = 2 - x(0) \rightarrow 0 \neq 2 \rightarrow$ 
+\textbf{No horizontal tangent line}.\\[0.25cm]
+
+\textbf{d) Givens:} $y = 3, \frac{dy}{dx} = 6, t = 5$\\
+\quad $2y(\frac{dy}{dt}) = y(\frac{dy}{dt}) + x(\frac{dy}{dt}) 
+\rightarrow 2(3)(6) = 3(\frac{dx}{dt}) + (\frac{7}{3})(6) 
+\rightarrow 36 = \frac{dx}{dt} + 14 \rightarrow \mathbf{\frac{dx}{dt} = 22/3}$.\\[1.5cm]
+
+
+
+\textbf{\uline{Question #2:}}
+\[ 
+    \frac{dy}{dx} \left[sin^-^1 (\frac{x}{2}) \right] =
+\]
+
+\textbf{Show your work:}\\[0.5cm]
+\quad $\frac{dy}{dx} \left[sin^-^1 (\frac{x}{2}) \right] 
+\rightarrow \frac{1}{\sqrt{1-(\frac{x}{2})^2}}(\frac{1}{2}) = 
+\frac{1}{2\sqrt{1-(\frac{x^2}{4})}}$\\[0.5cm]
+
+$\bullet$ \textbf{Solution:} $\mathbf{\frac{1}{2\sqrt{1-(\frac{x^2}{4})}}}$
+
+\\[1.5cm]
+
+
+\textbf{\uline{Question #3:}}
+The function $g(x) = 10x^4 - 7e^x^-^1, x > \frac{1}{2}$ is invertible. The derivative of $g^-^1$ at $x = 3$ is...\\[0.5cm]
+
+\textbf{Show your work:}\\[0.5cm]
+\quad $g'(x) = 40x^3 - 7e^x^-^1 
+\rightarrow g'(3) = 40(3)^3-7e^(3)^-^1 = 360 - 7e^2
+\rightarrow (g^-^1)'(3) = \frac{1}{360 - 7e^2}$\\[0.5cm]
+
+$\bullet$ \textbf{Solution:} $\mathbf{\frac{1}{308.277}}$.
+
+% ////////////////////////////////////////////
+%                   Unit 4
+% ///////////////////////////////////////////
+\newpage
+\newgeometry{left=1cm,right=1cm,top=2.5cm,bottom=2cm}
+
+\section*{\LARGE \centerline{Unit 4: Contextual Applications of Differentiation}}
+
+\textbf{\centerline{\uline{Helpful Resources:}}}\\[1cm]
+\begin{figure}[!h]
+    \centering
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/SDefCon.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/SRelExtr.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/SMVT.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/SRolle.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/STestCon.PNG}}}
+    \quad
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/SInflec.PNG}}}
+    \\[1cm]
+    \subfloat{{\includegraphics[scale=0.8]{Unit4IMG/XLFDT.PNG}}}
+\end{figure}
+\restoregeometry
+
+\newpage
+\textbf{\centerline{\Large{Practice Problems:}}}\\[1cm]
+
+\begin{wrapfigure}{r}{.3\textwidth}
+  \centering
+    \includegraphics[width=.25\textwidth]{Cone.PNG}
+\end{wrapfigure}
+
+\textbf{\uline{Question #1:}}
+A container has the shape of an open right circular cone, as shown in the figure above. The height of the container is 10 cm and the diameter of the opening is 10 cm. Water in the container is evaporating so that its depth h is changing at the constant rate of $-\frac{3}{10}cm/hr$.\\
+(The volume of a cone of height $h$ and radius $r$ is given by $V = \frac{1}{3}{\pi}r^2h$.)
+
+\begin{enumerate}
+    \begin{enumerate}
+        \item Find the volume $V$ of water in the container when $h = 5cm$. Indicate units of measure.
+        \item Find the rate of change of the volume of water in the container, with respect to time, when $h = 5cm$. Indicate units of measure. 
+        \item Show that the rate of change of the water is in the container due to evaporate is directly proportional to the exposed surface area of the water. What is the constant proportionality?
+    \end{enumerate}
+\end{enumerate}\\[0.5cm]
+
+\textbf{a) Givens:} $r = 2.5$ and $h = 5cm$ \\
+\qquad $V = \frac{\pi}{3}(\frac{5}{2}cm)^2(5cm) \rightarrow \mathbf{\frac{125}{12}{\pi}cm^3}$\\[0.5cm]
+
+\textbf{b) Givens:} $r = 2.5$ and $h = 5cm$ \\
+\qquad $r = 0.5h \rightarrow V = \frac{1}{3}{\pi}(0.5h)^2h = \frac{1}{12}\pi(h^3)$\\
+\qquad \textbf{Derivative in respect to $t$:} $\frac{dv}{dt} = \frac{1}{4}\pi(h^2)\frac{dh}{dt}
+\rightarrow \frac{dv}{dt} = \frac{1}{4}\pi(5^2cm)(\frac{3}{10}cm/hr)$\\
+\qquad \textbf{Solution:} $\frac{dv}{dt} = -\frac{15}{8}{\pi}cm^3/hr$.\\[0.5cm]
+
+\textbf{c)} Surface Area = ${\pi}r^2$.\\
+\qquad $\frac{dv}{dt} = \frac{\pi}{4}(h)^2(\frac{dh}{dt})
+\rightarrow \frac{\pi}{4}(h)^2(\frac{3}{10}) = -\frac{3\pi}{40}(h)^2$\\
+\qquad $h = 2r \rightarrow -\frac{3\pi}{40}(2r)^2 = -\frac{3\pi}{40}(4r^2)$\\[0.5cm]
+\qquad \textbf{Solution:} $\frac{dv}{dt} = -\frac{3}{10}{\pi}r^2$. $\mathbf{-\frac{3}{10}}$ is the constant of proportionality.
+
+\\[1.5cm]
+
+
+\textbf{\uline{Question #2:}}
+A point moves in a straight line so that its distance at time $t$ from a fixed point of the line is $2t^3 -9t^2 +12t$. The $total$ distance that the point travels from $t = 0$ to $t = 4$ is
+
+\begin{enumerate}
+    \begin{enumerate}
+        \item What is the acceleration of the object at time $t = 4$?
+        \item Consider the following two statements.\\
+            \qquad Statement \RNum{1}: \quad For $3 < t < 4.5$, the velocity of the object is decreasing.\\
+            \qquad Statement \RNum{2}: \quad For $3 < t < 4.5$, the speed of the object is increasing.\\
+        Are either or both of these statements correct? For each statement provide a reason why it is correct or not correct.
+    \end{enumerate}
+\end{enumerate}\\[0.5cm]
+
+\textbf{a)} $v(t) = \sin(\frac{\pi}{3}t) \quad
+| \quad a(t) = (\frac{\pi}{3})\cos(\frac{\pi}{3}t) \quad
+| \quad a(4) = -\frac{\pi}{6}$\\
+
+$\bullet$ \textbf{Solution} $\approx -0.524$.\\[0.25cm]
+
+\newpage
+\textbf{b)}\\
+\qquad \uline{Statement \RNum{1}}:\\
+\qquad \qquad $a(t) = (\frac{\pi}{3})\cos(\frac{\pi}{3}t) 
+\rightarrow a(3) = -\frac{\pi}{3} \approx -1.047$\\
+\qquad \qquad $a(4.5) = 0$\\[0.25cm]
+\qquad $\bullet$ \textbf{Solution:} $v'(t) = a(t)$ for $ 3 < t < 4.5$. $a(t) > 0$, this indicates that velocity is decreasing, hence the statement is \textbf{True}.\\[0.5cm]
+
+\qquad \uline{Statement \RNum{2}}:\\
+\qquad \qquad $v(t) = \cos(\frac{\pi}{3}t) \quad | 
+\quad v(3) = -1 \quad | \quad v(4.5) = 0$\\
+\qquad \qquad $a(t) = (\frac{\pi}{3})\cos(\frac{\pi}{3}t) \quad | 
+\quad a(3) = -\frac{\pi}{3} \approx -1.047\quad | \quad a(4.5) = 0$\\[0.25cm]
+
+\qquad $\bullet$ \textbf{Solution:} $v(t) > 0$ for $3 < t < 4.5$. $a(t) > 0$ for $3 < t < 4.5$. These indicate that the velocity and acceleration are both decreasing, speed is increasing, hence the statement is \textbf{True}.\\[1.5cm]
+
+\textbf{\uline{Question #3:}}
+A particle moves along the x-axis with velocity at time $ t \geq 0$ given by $v(t) = -1 + e^1^-^t$.
+
+\begin{enumerate}
+    \begin{enumerate}
+        \item Find the acceleration of the particle at time $t = 3$.
+        \item Is the speed of the particle increasing at time $t = 3$? Give a reason for your answer.
+        \item Find all values of $t$ at which the particle changes direction. Justify your answer.
+    \end{enumerate}
+\end{enumerate}\\[0.5cm]
+
+\textbf{a)} $s(t) = -1 + e^1^-^t \quad | \quad v(t) = -e^1^-^t$\\
+\quad \space $a(t) = -e^1^-^t \rightarrow a(3) = e^1^-^(^3^)$\\[0.25cm]
+$\bullet$ \textbf{Solution:} $a(3) \approx 0.135$.\\[1cm]
+
+\textbf{b)} $v(3) = -e^-^2 \approx -0.135$ and $a(3) = e^-^2 \approx 0.135$\\[0.25cm]
+$\bullet$ \textbf{Solution:} Since both velocity and acceleration have different signs, the speed of the particle is decreasing at $t = 3$.\\[1cm]
+
+\textbf{c)}\\
+$\bullet$ \textbf{Solution:} When $t = 1$, the particle changes directions since $v(t) > 0$ for $t < 1$ and $v(t) < 0$ for $t > 1$. \textbf{Ans:} $t = 1$.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale= 0.5]{sleep.png}
+\end{figure}
+
+
+\centerline{\href{https://www.overleaf.com/read/qsqmskstmxzd}{\color{ForestGreen}Link to TeX file.}}
+
+\end{document}
